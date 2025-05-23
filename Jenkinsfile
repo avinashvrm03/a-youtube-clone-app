@@ -57,5 +57,12 @@ pipeline {
                 }
             }
         }
+        stage('TRIVY Image Scan') {
+            steps {
+                script {
+                    sh "docker run -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image avinash0001/a-youtube-clone-app:latest"
+                }
+            }
+        }
     }
 }
