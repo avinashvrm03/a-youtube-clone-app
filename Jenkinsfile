@@ -21,7 +21,7 @@ pipeline {
         stage('Sonarqube Analysis') {
             steps {
                 script {
-                    withSonarQubeEnv('SonarQube-Server') {
+                    withSonarQubeEnv('Sonarqube-Scanner') {
                         sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectName=a-youtube-clone-app \
                         -Dsonar.projectKey=a-youtube-clone-app"
                     }
