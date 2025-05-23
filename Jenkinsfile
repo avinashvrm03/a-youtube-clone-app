@@ -18,8 +18,14 @@ pipeline {
                 git branch: 'main', credentialsId: 'Jenkins-Github-Token', url: 'https://github.com/avinashvrm03/a-youtube-clone-app.git'
             }
         }
-        stage('') {
+        stage('Sonarqube Analysis') {
             steps {
+                script {
+                    withSonarQubeEnv('SonarQube-Server') {
+                        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectName=a-youtube-clone-app \
+                        -Dsonar.projectKey=a-youtube-clone-app"
+                    }
+                }
                 
             }
         }
