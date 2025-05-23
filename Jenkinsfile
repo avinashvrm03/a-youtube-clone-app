@@ -6,10 +6,10 @@ pipeline {
     }
     environment {
     SCANNER_HOME = tool 'Sonarqube-Scanner'
-    APP = 'a-youtube-clone-app'
-    DOCKER_USER = 'avinash0001'
-    IMAGE_NAME = '${DOCKER_USER}/${APP}'
-    IMAGE_TAG = ''
+    APP = "a-youtube-clone-app"
+    DOCKER_USER = "avinash0001"
+    IMAGE_NAME = "${DOCKER_USER}/${APP}"
+    IMAGE_TAG = ""
     }
     stages {
         stage('Cleanup Workspace') {
