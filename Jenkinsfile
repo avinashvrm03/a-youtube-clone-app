@@ -6,6 +6,10 @@ pipeline {
     }
     environment {
     SCANNER_HOME = tool 'Sonarqube-Scanner'
+    APP = 'a-youtube-clone-app'
+    DOCKER_USER = 'avinash0001'
+    IMAGE_NAME = '${DOCKER_USER}/${APP}'
+    IMAGE_TAG = ''
     }
     stages {
         stage('Cleanup Workspace') {
@@ -39,6 +43,18 @@ pipeline {
         stage('Install Dependencies') {
             steps {
                 sh 'npm install'
+            }
+        }
+        stage('Docker Build & Push') {
+            steps {
+                script {
+                    docker.withRegistry('', 'Jenkins-Dockerub-Token') {
+                        docker_image = docker.build"${IMAGE_NAME}"
+                    }
+                    docker.withRegistry('','Jenkins-Dockerub-Token') {
+                        docker_image.push('latest')
+                    }
+                }
             }
         }
     }
