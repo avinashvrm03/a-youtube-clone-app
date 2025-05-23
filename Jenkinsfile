@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {
                     withSonarQubeEnv('SonarQube-Server') {
-                        sh "${scannerHome}/bin/sonar-scanner -Dsonar.projectName=a-youtube-clone-app \
+                        sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectName=a-youtube-clone-app \
                         -Dsonar.projectKey=a-youtube-clone-app"
                     }
                 }
