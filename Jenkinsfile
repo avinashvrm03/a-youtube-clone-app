@@ -67,7 +67,7 @@ pipeline {
     }
     post {
         always {
-            emailext body: '$BUILD_NUMBER $STATUS', subject: '$Build_Number', to: 'bugfreecricket@gmail.com'
+            emailext body: '$BUILD_NUMBER $JOB_STATUS', subject: '$Build_Number', to: 'bugfreecricket@gmail.com'
         }
     }
 }
