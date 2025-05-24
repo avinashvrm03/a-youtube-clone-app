@@ -65,4 +65,9 @@ pipeline {
             }
         }
     }
+    post {
+        always {
+            emailext body: '$BUILD_NUMBER $STATUS', subject: '$Build_Number', to: 'bugfreecricket@gmail.com'
+        }
+    }
 }
