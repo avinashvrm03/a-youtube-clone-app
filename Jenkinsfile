@@ -68,10 +68,13 @@ pipeline {
         stage('Deploy to Kubernets') {
             steps {
                 dir ('Kubernetes') {
-                    sh 'kubectl delete --all pod'
-                    sh 'kubectl apply -f deployment.yml'
-                     sh 'kubectl apply -f service.yml'
+                    withKubeConfig(caCertificate: '', clusterName: '', contextName: '', credentialsId: 'kubernetes', namespace: '', restrictKubeConfigAccess: false, serverUrl: '') {
+                                            sh 'kubectl delete --all pod'
+                                            sh 'kubectl apply -f deployment.yml'
+                                            sh 'kubectl apply -f service.yml'
                 }
+
+              }
             }
         }
     }
