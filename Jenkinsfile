@@ -18,10 +18,13 @@ pipeline {
         }
         stage ('Checkout from Git') {
             steps {
+                script {
                 git branch: 'main', credentialsId: 'github' url: 'https://github.com/avinashvrm03/a-youtube-clone-app.git'
+                }
             }
         }
     }
+}
     post {
         sucessful {
             sh 'echo Pipeline Sucessfully Run'
@@ -30,4 +33,3 @@ pipeline {
              sh 'echo Pipeline Failed'
         }
     }
-}
