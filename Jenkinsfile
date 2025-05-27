@@ -33,6 +33,11 @@ pipeline {
                 
             }
         }
+        stage ('Quality Gate') {
+            steps {
+                waitForQualityGate abortPipeline: false; credentialsId: 'Jenkins-SonarQube-Token'
+            }
+        }
     }
     post {
         success {
