@@ -65,6 +65,11 @@ pipeline {
                 }
             }
         }
+        stage('Deploy to Kubernets') {
+            steps {
+                echo 'This step will be for deployment to kubernetes'
+            }
+        }
     }
     post {
         success {
