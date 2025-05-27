@@ -45,6 +45,18 @@ pipeline {
                 }
             }
         }
+        stage ('Docker Build & Push') {
+            steps {
+                script {
+                    docker.withRegistry('', 'dockerhub') {
+                    docker_image = docker.build"${IMAGE_NAME}"
+                    }
+                    docker.withRegistry('', 'dockerhub') {
+                        docker_image.psuh('latest')
+                    }
+                }
+            }
+        }
     }
     post {
         success {
