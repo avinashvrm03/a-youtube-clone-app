@@ -5,7 +5,7 @@ pipeline {
         nodejs 'node16'
     }
     environment {
-        SCANNER_HOME = tools 'SonarQube-Scanner'
+        SCANNER_HOME = tool 'SonarQube-Scanner'
         APP = "a-youtube-clone-app"
         DOCKER_USER = "avinash0001"
         IMAGE_NAME = "${DOCKER_USER}/${IMAGE_NAME}"
