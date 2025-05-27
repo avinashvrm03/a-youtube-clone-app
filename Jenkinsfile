@@ -24,7 +24,6 @@ pipeline {
             }
         }
     }
-}
     post {
         sucessful {
             sh 'echo Pipeline Sucessfully Run'
@@ -33,3 +32,4 @@ pipeline {
              sh 'echo Pipeline Failed'
         }
     }
+}
