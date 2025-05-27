@@ -28,7 +28,7 @@ pipeline {
         sucessful {
             sh 'echo Pipeline Sucessfully Run'
         }
-        Failed {
+        failed {
              sh 'echo Pipeline Failed'
         }
     }
