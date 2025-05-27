@@ -47,23 +47,28 @@ pipeline {
         }
         stage ('Docker Build & Push') {
             steps {
-                script {
                     docker.withRegistry('', 'dockerhub') {
                     docker_image = docker.build"${IMAGE_NAME}"
                     }
                     docker.withRegistry('', 'dockerhub') {
                         docker_image.psuh('latest')
                     }
+            }
+        }
+        stage('TRIVY Image Scan') {
+            steps {
+                script {
+                    sh 'docker run -v /var/run/docker.sock:/var/run/docker.sock aquasec/trivy image avinash0001/a-youtube-clone-app:latest'
                 }
             }
         }
     }
     post {
         success {
-            sh 'echo Pipeline Sucessfully Run'
+            echo 'Pipeline Sucessfully Run'
         }
         failure {
-             sh 'echo Pipeline Failed'
+             echo 'Pipeline Failed'
         }
     }
 }
