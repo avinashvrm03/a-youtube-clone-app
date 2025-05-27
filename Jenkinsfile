@@ -25,7 +25,7 @@ pipeline {
         }
     }
     post {
-        sucessful {
+        success {
             sh 'echo Pipeline Sucessfully Run'
         }
         failure {
