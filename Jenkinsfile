@@ -19,7 +19,7 @@ pipeline {
         stage ('Checkout from Git') {
             steps {
                 script {
-                git branch: 'main', credentialsId: 'github' url: 'https://github.com/avinashvrm03/a-youtube-clone-app.git'
+                git branch: 'main', credentialsId: 'github', url: 'https://github.com/avinashvrm03/a-youtube-clone-app.git'
                 }
             }
         }
