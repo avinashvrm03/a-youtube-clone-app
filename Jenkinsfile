@@ -23,6 +23,16 @@ pipeline {
                 }
             }
         }
+        stage ('Sonarqube Analysis') {
+            steps {
+                script {
+                    withSonarQubeEnv('SonarQube-Server') {
+                       sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectName=a-youtube-clone-app -Dsonar.projectKey=a-youtube-clone-app"
+                    }
+                }
+                
+            }
+        }
     }
     post {
         success {
