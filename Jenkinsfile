@@ -38,6 +38,13 @@ pipeline {
                 waitForQualityGate abortPipeline: false, credentialsId: "Jenkins-SonarQube-Token"
             }
         }
+        stage ('Install Dependencies') {
+            steps {
+                script {
+                    sh 'npm install'
+                }
+            }
+        }
     }
     post {
         success {
