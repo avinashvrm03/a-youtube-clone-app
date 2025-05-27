@@ -67,7 +67,11 @@ pipeline {
         }
         stage('Deploy to Kubernets') {
             steps {
-                echo 'This step will be for deployment to kubernetes'
+                dir ('Kubernetes') {
+                    sh 'kubectl delete --all pod'
+                    sh 'kubectl apply -f deployment.yml'
+                     sh 'kubectl apply -f service.yml'
+                }
             }
         }
     }
