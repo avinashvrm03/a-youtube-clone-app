@@ -8,6 +8,7 @@ pipeline {
         SCANNER_HOME = tool 'SonarQube-Scanner'
         APP = "a-youtube-clone-app"
         DOCKER_USER = "avinash0001"
+        DOCKER_PASS = "dockerhub"
         IMAGE_NAME = "${DOCKER_USER}/${IMAGE_NAME}"
     }
     stages {
@@ -48,10 +49,10 @@ pipeline {
         stage ('Docker Build & Push') {
             steps {
                 script {
-                    docker.withRegistry('', 'dockerhub') {
+                    docker.withRegistry('', 'DOCKER_PASS') {
                     docker_image = docker.build"${IMAGE_NAME}"
                     }
-                    docker.withRegistry('', 'dockerhub') {
+                    docker.withRegistry('', 'DOCKER_PASS') {
                         docker_image.psuh('latest')
                     }
                 }
