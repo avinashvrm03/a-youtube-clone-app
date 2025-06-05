@@ -27,6 +27,11 @@ stages {
     }
   }
   }
+  stage('Quality Gate') {
+    steps {
+      waitForQualityGate abortpipeline: false, credentialsId: 'sonarqube-token'
+    }
+  }
   }
 }
 
