@@ -10,7 +10,7 @@ SCANNER_HOME = tool "SonarQube-Scanner"
 stages {
   stage('Cleanup Workspace') {
   steps {
-    CleanWs()
+    CleanWS()
   }
 }
   stage('Checkout SCM ') {
