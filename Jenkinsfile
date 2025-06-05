@@ -37,6 +37,11 @@ stages {
       sh "npm install"
     }
   }
+  stage('OWASP FS SCAN') {
+    steps {
+      sh "echo this is OWASP FS SCAN stage"
+    }
+  }
   }
 }
 
