@@ -40,7 +40,7 @@ stages {
   stage('OWASP FS SCAN') {
     steps {
       dependencyCheck additionalArguments: '--scan ./', odcInstallation: 'owaspdc'
-      dependencyCheckPublisher pattern: '**/dependency-check-report.html'
+      dependencyCheckPublisher pattern: './dependency-check-report.html'
     }
   }
   }
