@@ -29,7 +29,7 @@ stages {
   }
   stage('Quality Gate') {
     steps {
-      waitForQualityGate abortpipeline: false, credentialsId: 'sonarqube-token'
+      waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube-token'
     }
   }
   }
