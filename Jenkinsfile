@@ -20,7 +20,11 @@ stages {
   }
   stage('SonarQube Analysis') {
   steps {
-    sh "echo this is sonarqube analysis stage"
+    script {
+      withSonarEnv("SonarQube-Server") {
+        sh "${SCANNER_HOME}/bin/sonar-scanner -Dsonar.projectName=a-youtube-clone-app -Dsonar.projectKey=a-youtube-clone-app"
+      }
+    }
   }
   }
   }
