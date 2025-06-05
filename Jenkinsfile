@@ -20,7 +20,7 @@ stages {
   }
   stage('SonarQube Analysis') {
   steps {
-    echo this is sonarqube analysis stage
+    sh "echo this is sonarqube analysis stage"
   }
   }
   }
