@@ -39,7 +39,8 @@ stages {
   }
   stage('OWASP FS SCAN') {
     steps {
-      sh "echo this is OWASP FS SCAN stage"
+      dpendencyCheck additionalArguments: '--scan ./', ocdInstallation: 'owaspdc'
+      dependencyCheckPublisher pattern: '**/dependency-check-report.html'
     }
   }
   }
