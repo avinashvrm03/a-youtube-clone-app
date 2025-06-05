@@ -32,6 +32,11 @@ stages {
       waitForQualityGate abortPipeline: false, credentialsId: 'sonarqube-token'
     }
   }
+  stage('Install Dependencies') {
+    steps {
+      sh "npm install"
+    }
+  }
   }
 }
 
