@@ -12,6 +12,7 @@ stages {
   steps {
     CleanWs()
   }
+}
   stage('Checkout SCM ') {
     steps {
       git branch: 'main', credentialsId: 'github', url: 'https://github.com/avinashvrm03/a-youtube-clone-app.git'
@@ -24,4 +25,4 @@ stages {
   }
   }
 }
-}
+
