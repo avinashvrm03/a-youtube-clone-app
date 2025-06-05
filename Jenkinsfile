@@ -14,14 +14,14 @@ stages {
   }
   stage('Checkout SCM ') {
     steps {
-    git branch: 'main', credentialsId: 'github', url: 'https://github.com/avinashvrm03/a-youtube-clone-app.git'
+      git branch: 'main', credentialsId: 'github', url: 'https://github.com/avinashvrm03/a-youtube-clone-app.git'
     }
   }
-stage('SonarQube Analysis') {
-steps {
-echo this is sonarqube analysis stage
-}
-}
+  stage('SonarQube Analysis') {
+  steps {
+    echo this is sonarqube analysis stage
+  }
+  }
   }
 }
 }
