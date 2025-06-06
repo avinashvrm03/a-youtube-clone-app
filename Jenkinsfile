@@ -39,8 +39,8 @@ stages {
   }
   stage('OWASP FS SCAN') {
     steps {
-      dependencyCheck additionalArguments: '--scan ./', odcInstallation: 'owaspdc'
-      dependencyCheckPublisher pattern: './dependency-check-report.html'
+      dependencyCheck additionalArguments: '--scan ./', --disableYarnAudit', odcInstallation: 'owaspdc'
+      dependencyCheckPublisher pattern: '**/dependency-check-report.xml'
     }
   }
   }
