@@ -44,5 +44,13 @@ stages {
     }
   }
   }
+  post {
+    successfull {
+      sh 'The Pipeline is Sucessfull'
+    }
+    failure {
+        sh 'The Pipeline is Failed'
+    }
+  }
 }
 
