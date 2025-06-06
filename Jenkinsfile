@@ -45,7 +45,7 @@ stages {
   }
   }
   post {
-    successfull {
+    success {
       sh 'The Pipeline is Sucessfull'
     }
     failure {
