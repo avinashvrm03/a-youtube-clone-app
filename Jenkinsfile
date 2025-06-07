@@ -46,10 +46,10 @@ stages {
   }
   post {
     success {
-      sh 'The Pipeline is Sucessfull'
+      sh 'echo The Pipeline is Successfull'
     }
     failure {
-        sh 'The Pipeline is Failed'
+        sh 'echo The Pipeline is Failed'
     }
   }
 }
